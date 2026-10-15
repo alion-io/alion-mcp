@@ -54,6 +54,7 @@ Sign-in is OAuth with your Alion account (free); the client opens the sign-in pa
 | **Claude Code** | `claude mcp add --transport http alion https://alion.io/mcp`, then `/mcp` to sign in |
 | **Cursor** | add to `~/.cursor/mcp.json`: `{"mcpServers": {"alion": {"url": "https://alion.io/mcp"}}}` |
 | **VS Code** (Copilot) | Command palette → *MCP: Add Server* → HTTP → `https://alion.io/mcp` |
+| **Cline** | MCP Servers → Configure → add `"alion": {"type": "streamableHttp", "url": "https://alion.io/mcp", "headers": {"Authorization": "Bearer <key>"}}` (step by step: [llms-install.md](llms-install.md)) |
 | **Codex** | `codex mcp add alion --url https://alion.io/mcp`, then `codex mcp login alion` |
 | **Mistral Le Chat** | add a custom MCP connector with URL `https://alion.io/mcp` and OAuth sign-in |
 | **Any MCP client** | Streamable HTTP endpoint `https://alion.io/mcp`; OAuth discovery at `https://alion.io/.well-known/oauth-protected-resource/mcp` (dynamic client registration and client ID metadata documents are supported) |
