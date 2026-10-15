@@ -1,0 +1,79 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "alion",
+  "version": "1.2.0",
+  "description": "Live data on millions of companies: funding, tech stack, growth, lookalikes, jobs and pay statistics.",
+  "author": {
+    "name": "Alion",
+    "email": "dmitrii@alion-team.com",
+    "url": "https://alion.io"
+  },
+  "homepage": "https://alion.io/developers/agents",
+  "keywords": ["companies", "startups", "funding", "market research", "lookalikes", "sales prospecting", "due diligence", "jobs"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Alion",
+        "shortDescription": "Company & market intelligence",
+        "longDescription": "Alion is a live graph of companies worldwide, built from the companies' own websites, job boards and public registers. Ask ChatGPT to map a market (\"fintech companies in the UAE with 50-200 people that use Kubernetes\"), find lookalikes of a company, scout recently funded startups by stage, date or investor, research one company in depth (offices, funding rounds and backers, technology stack, growth and hiring momentum, a dated story of its stages), or answer labour-market questions (pay percentiles, demand, who hires most). Every answer links to the Alion page of each company or posting. Read-only: nothing is created, changed or sent. Short company and job lists are free up to 50 a day; full company profiles, job records and market statistics are paid from your Alion credits.",
+        "developerName": "Dmitrii Maslennikov",
+        "category": "Business",
+        "websiteURL": "https://alion.io",
+        "supportURL": "https://alion.io/contact",
+        "privacyPolicyURL": "https://alion.io/api-terms",
+        "termsOfServiceURL": "https://alion.io/terms",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Lookalikes of a known company, with the reasons each one is similar",
+              "prompt": "Find companies similar to mambu.com and explain what they have in common.",
+              "tools_triggered": ["similar_companies"],
+              "expected_behavior": "Lists 5-10 companies (e.g. Arcesium, Juniper Square, FIS, Avaloq) with the industry segments and technologies each shares with Mambu, its headquarters country and size, each linked to its Alion page."
+            },
+            {
+              "description": "Recently funded early-stage startups in one country, newest round first",
+              "prompt": "Which early-stage startups in Germany raised a round in the last year? Show the round and the date.",
+              "tools_triggered": ["search_companies"],
+              "expected_behavior": "Calls search_companies with funding_stage=early, raised_since=1y, country=DE, sort=recent_funding and lists startups with their last round (seed / series_a) and its date, newest first."
+            },
+            {
+              "description": "One company in depth: funding, investors, stack and growth",
+              "prompt": "Tell me about finmid.com: funding and investors, tech stack, and how fast it is growing.",
+              "tools_triggered": ["resolve_company", "get_company"],
+              "expected_behavior": "Resolves finmid.com and reports what it does, its Berlin headquarters, funding rounds and backers (e.g. Earlybird), the technologies in its postings and its hiring momentum, with a link to its Alion page."
+            },
+            {
+              "description": "A company's open jobs and the full record of one of them",
+              "prompt": "Show Mambu's open jobs, then the full details of the senior software engineer role.",
+              "tools_triggered": ["search_jobs", "get_job"],
+              "expected_behavior": "Lists Mambu's live postings (title, location, work mode, pay estimate) and then the full record of the chosen posting: requirements, technologies, location and its Alion link."
+            },
+            {
+              "description": "Pay and demand statistics for a role in a country",
+              "prompt": "What do backend engineers earn in Germany, and which companies hire the most of them?",
+              "tools_triggered": ["market_stats"],
+              "expected_behavior": "Reports open postings and hiring companies, the 30-day trend, salary percentiles in USD per year (stated and estimated, with sample sizes), time to fill and the top employers."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Asks for a person's private contact details. Alion exposes no personal emails or phone numbers; the assistant should say so and may offer the company page or its public careers information instead.",
+              "prompt": "Give me the personal email and mobile number of Mambu's CEO."
+            },
+            {
+              "description": "Asks the app to act on the user's behalf. All Alion tools are read-only; the assistant should explain it cannot apply or send anything and may link the job's Alion page where the user can apply.",
+              "prompt": "Apply to the senior software engineer job at Mambu for me and send my CV."
+            },
+            {
+              "description": "A request unrelated to companies, startups, jobs or markets. The assistant should answer without calling any Alion tool.",
+              "prompt": "What will the weather be in Berlin tomorrow?"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
