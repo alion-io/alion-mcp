@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "alion": {
+      "type": "http",
+      "url": "https://alion.io/mcp/open"
+    }
+  }
+}

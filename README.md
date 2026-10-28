@@ -24,7 +24,7 @@ Use it for market maps, competitor and lookalike lists, sales prospecting, start
 | `https://alion.io/mcp/companies` | Companies, lookalikes, the market | OAuth or API key |
 | `https://alion.io/mcp/people` | Finding and messaging people | OAuth or API key |
 
-> This repository holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to install or self-host.
+> This repository is also a Claude Code plugin marketplace (`.claude-plugin/`), a Gemini CLI extension (`gemini-extension.json`, `GEMINI.md`) and an Antigravity plugin (`plugin.json`, `mcp_config.json`, `skills/`); all three connect to `https://alion.io/mcp/open`. It holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to install or self-host.
 
 ## Tools
 
@@ -68,11 +68,13 @@ No account: use `https://alion.io/mcp/open` in place of `https://alion.io/mcp` b
 |---|---|
 | **Claude** (claude.ai, Desktop) | Settings → Connectors → Add custom connector → URL `https://alion.io/mcp` → Connect |
 | **ChatGPT** | Settings → Apps & Connectors → Advanced → Developer mode → Create → URL `https://alion.io/mcp`, authentication OAuth |
-| **Claude Code** | `claude mcp add --transport http alion https://alion.io/mcp`, then `/mcp` to sign in |
+| **Claude Code** | Plugin (no account, with a usage skill): `/plugin install alion --marketplace alion-io/alion-mcp`. Or the full server: `claude mcp add --transport http alion https://alion.io/mcp`, then `/mcp` to sign in |
 | **Cursor** | add to `~/.cursor/mcp.json`: `{"mcpServers": {"alion": {"url": "https://alion.io/mcp"}}}` |
 | **VS Code** (Copilot) | Command palette → *MCP: Add Server* → HTTP → `https://alion.io/mcp` |
 | **Cline** | MCP Servers → Configure → add `"alion": {"type": "streamableHttp", "url": "https://alion.io/mcp", "headers": {"Authorization": "Bearer <key>"}}` (step by step: [llms-install.md](llms-install.md)) |
 | **Codex** | `codex mcp add alion --url https://alion.io/mcp`, then `codex mcp login alion` |
+| **Gemini CLI** | `gemini extensions install https://github.com/alion-io/alion-mcp` (no account) |
+| **Antigravity CLI** | `agy plugin install https://github.com/alion-io/alion-mcp` (no account) |
 | **Mistral Le Chat** | add a custom MCP connector with URL `https://alion.io/mcp` and OAuth sign-in |
 | **Any MCP client** | Streamable HTTP endpoint `https://alion.io/mcp`; OAuth discovery at `https://alion.io/.well-known/oauth-protected-resource/mcp` (dynamic client registration and client ID metadata documents are supported) |
 

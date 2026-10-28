@@ -1,0 +1,29 @@
+{
+  "name": "alion",
+  "displayName": "Alion",
+  "version": "1.4.0",
+  "description": "Live job postings and pay, company and startup data, and people open to offers - no account needed.",
+  "author": {
+    "name": "Alion",
+    "url": "https://alion.io"
+  },
+  "homepage": "https://alion.io/developers/agents",
+  "repository": "https://github.com/alion-io/alion-mcp",
+  "license": "MIT",
+  "keywords": [
+    "jobs",
+    "job search",
+    "salaries",
+    "companies",
+    "startups",
+    "funding",
+    "market research",
+    "recruiting",
+    "mcp"
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://alion.io/developers/agents",
+  "supportUrl": "https://alion.io/contact",
+  "privacyPolicyUrl": "https://alion.io/privacy",
+  "termsOfServiceUrl": "https://alion.io/api-terms"
+}

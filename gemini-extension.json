@@ -1,0 +1,12 @@
+{
+  "name": "alion",
+  "version": "1.4.0",
+  "description": "Live job postings and pay, company and startup data, and people open to offers - no account needed.",
+  "mcpServers": {
+    "alion": {
+      "httpUrl": "https://alion.io/mcp/open",
+      "timeout": 60000
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

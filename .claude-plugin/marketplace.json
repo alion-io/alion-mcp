@@ -1,0 +1,22 @@
+{
+  "name": "alion",
+  "owner": {
+    "name": "Alion",
+    "url": "https://alion.io"
+  },
+  "description": "Alion's MCP server for Claude Code: jobs, companies and people.",
+  "plugins": [
+    {
+      "name": "alion",
+      "source": "./",
+      "description": "Live job postings and pay, company and startup data, and people open to offers - no account needed.",
+      "category": "data",
+      "tags": [
+        "jobs",
+        "companies",
+        "startups",
+        "recruiting"
+      ]
+    }
+  ]
+}
