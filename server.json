@@ -2,12 +2,24 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.alion/alion",
   "title": "Alion: company, startup and market intelligence",
-  "description": "Live data on millions of companies: funding, tech stack, growth, lookalikes, jobs and pay stats.",
-  "version": "1.2.0",
+  "description": "Live data on companies, jobs and pay, plus people open to offers: find, read and message them.",
+  "version": "1.4.0",
   "websiteUrl": "https://alion.io/developers",
   "icons": [
-    {"src": "https://alion.io/images/favicons/android-chrome-512x512.png", "mimeType": "image/png", "sizes": ["512x512"]},
-    {"src": "https://alion.io/images/favicons/android-chrome-192x192.png", "mimeType": "image/png", "sizes": ["192x192"]}
+    {
+      "src": "https://alion.io/images/favicons/android-chrome-512x512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://alion.io/images/favicons/android-chrome-192x192.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "192x192"
+      ]
+    }
   ],
   "remotes": [
     {
@@ -25,6 +37,10 @@
     {
       "type": "streamable-http",
       "url": "https://alion.io/mcp/oauth"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://alion.io/mcp/open"
     }
   ]
 }
