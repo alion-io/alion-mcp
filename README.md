@@ -77,6 +77,8 @@ No account: use `https://alion.io/mcp/open` in place of `https://alion.io/mcp` b
 | **Antigravity CLI** | `agy plugin install https://github.com/alion-io/alion-mcp` (no account) |
 | **Mistral Le Chat** | add a custom MCP connector with URL `https://alion.io/mcp` and OAuth sign-in |
 | **Claude Desktop, Windsurf, Zed** (local command) | `{"mcpServers": {"alion": {"command": "npx", "args": ["-y", "@alion-io/mcp"]}}}`, add `"env": {"ALION_API_KEY": "<key>"}` for the full server ([@alion-io/mcp](https://www.npmjs.com/package/@alion-io/mcp)) |
+| **CrewAI** | `Agent(..., mcps=["https://alion.io/mcp/open#search_companies", "https://alion.io/mcp/open#search_jobs"])` (`#tool` picks single tools; example crew: [alion-sdk/examples/crewai](https://github.com/alion-io/alion-sdk/tree/main/examples/crewai)) |
+| **LangChain** | `pip install langchain-alion`, then `AlionToolkit().get_tools()` |
 | **Any MCP client** | Streamable HTTP endpoint `https://alion.io/mcp`; OAuth discovery at `https://alion.io/.well-known/oauth-protected-resource/mcp` (dynamic client registration and client ID metadata documents are supported) |
 
 Scripts can use an API key instead of OAuth: `Authorization: Bearer <key>` from https://alion.io/developers/keys. Every tool is also a plain HTTP endpoint (`/mcp/rest/<tool>`), described in OpenAPI 3.1 at https://alion.io/mcp/openapi; the live tool catalogue with input and output schemas is at https://alion.io/mcp/tools.
