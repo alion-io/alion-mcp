@@ -24,7 +24,7 @@ Use it for market maps, competitor and lookalike lists, sales prospecting, start
 | `https://alion.io/mcp/companies` | Companies, lookalikes, the market | OAuth or API key |
 | `https://alion.io/mcp/people` | Finding and messaging people | OAuth or API key |
 
-> This repository is also a Claude Code plugin marketplace (`.claude-plugin/`), a Gemini CLI extension (`gemini-extension.json`, `GEMINI.md`) and an Antigravity plugin (`plugin.json`, `mcp_config.json`, `skills/`); all three connect to `https://alion.io/mcp/open`. It holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to install or self-host.
+> This repository is also a Claude Code plugin marketplace (`.claude-plugin/`), a Gemini CLI extension (`gemini-extension.json`, `GEMINI.md`) and an Antigravity plugin (`plugin.json`, `mcp_config.json`, `skills/`); all three connect to `https://alion.io/mcp/open`. It holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to self-host. For clients that only start a local command there is `npx -y @alion-io/mcp`, and code can use the typed clients `@alion-io/sdk` (npm) and `alion` (PyPI), all from [alion-io/alion-sdk](https://github.com/alion-io/alion-sdk).
 
 ## Tools
 
@@ -76,9 +76,24 @@ No account: use `https://alion.io/mcp/open` in place of `https://alion.io/mcp` b
 | **Gemini CLI** | `gemini extensions install https://github.com/alion-io/alion-mcp` (no account) |
 | **Antigravity CLI** | `agy plugin install https://github.com/alion-io/alion-mcp` (no account) |
 | **Mistral Le Chat** | add a custom MCP connector with URL `https://alion.io/mcp` and OAuth sign-in |
+| **Claude Desktop, Windsurf, Zed** (local command) | `{"mcpServers": {"alion": {"command": "npx", "args": ["-y", "@alion-io/mcp"]}}}`, add `"env": {"ALION_API_KEY": "<key>"}` for the full server ([@alion-io/mcp](https://www.npmjs.com/package/@alion-io/mcp)) |
 | **Any MCP client** | Streamable HTTP endpoint `https://alion.io/mcp`; OAuth discovery at `https://alion.io/.well-known/oauth-protected-resource/mcp` (dynamic client registration and client ID metadata documents are supported) |
 
 Scripts can use an API key instead of OAuth: `Authorization: Bearer <key>` from https://alion.io/developers/keys. Every tool is also a plain HTTP endpoint (`/mcp/rest/<tool>`), described in OpenAPI 3.1 at https://alion.io/mcp/openapi; the live tool catalogue with input and output schemas is at https://alion.io/mcp/tools.
+
+## From code
+
+Typed clients with every tool as a method, free without a key on the open address ([source](https://github.com/alion-io/alion-sdk)):
+
+```bash
+npm install @alion-io/sdk   # JavaScript, TypeScript
+pip install alion           # Python, sync and async
+```
+
+```ts
+import { Alion } from '@alion-io/sdk';
+const { items } = await new Alion().searchCompanies({ industry: 'Fintech', country: 'DE', limit: 10 });
+```
 
 ## Pricing
 
@@ -97,7 +112,8 @@ Company and posting texts are third-party content: they are filtered for text ai
 
 ## Listings
 
-- MCP Registry: `io.alion/alion`, `io.alion/jobs`, `io.alion/companies`, `io.alion/people`
+- MCP Registry: `io.alion/alion` (remotes + the npm package `@alion-io/mcp`), `io.alion/jobs`, `io.alion/companies`, `io.alion/people`
+- npm: [@alion-io/mcp](https://www.npmjs.com/package/@alion-io/mcp), [@alion-io/sdk](https://www.npmjs.com/package/@alion-io/sdk) · PyPI: [alion](https://pypi.org/project/alion/)
 - Smithery: https://smithery.ai/servers/alion/company-intelligence
 
 ## Support
