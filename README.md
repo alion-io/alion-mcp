@@ -18,13 +18,13 @@ Use it for market maps, competitor and lookalike lists, sales prospecting, start
 
 | Address | What it serves | Sign-in |
 |---|---|---|
-| `https://alion.io/mcp/open` | Compact searches of jobs and companies, full job postings, the people tools, watches | none (daily limit per network) |
+| `https://alion.io/mcp/open` | Searches of jobs and companies, full job postings, company cards, `entry_points`, the people tools, watches (events of up to 25 named companies free), daily free tries of the deep reads, `connect_account` for a free key | none (daily limit per network) |
 | `https://alion.io/mcp` | Every tool | OAuth or API key |
 | `https://alion.io/mcp/jobs` | Job search, postings, pay statistics, `my_matches` | OAuth or API key |
 | `https://alion.io/mcp/companies` | Companies, lookalikes, the market | OAuth or API key |
 | `https://alion.io/mcp/people` | Finding and messaging people | OAuth or API key |
 
-> This repository is also a Claude Code plugin marketplace (`.claude-plugin/`), a Gemini CLI extension (`gemini-extension.json`, `GEMINI.md`) and an Antigravity plugin (`plugin.json`, `mcp_config.json`, `skills/`); all three connect to `https://alion.io/mcp/open`. It holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to self-host. For clients that only start a local command there is `npx -y @alion-io/mcp`, and code can use the typed clients `@alion-io/sdk` (npm) and `alion` (PyPI), all from [alion-io/alion-sdk](https://github.com/alion-io/alion-sdk).
+> This repository is also a Claude Code plugin marketplace (`.claude-plugin/`), a Gemini CLI extension (`gemini-extension.json`, `GEMINI.md`) an Antigravity plugin (`plugin.json`, `mcp_config.json`, `skills/`) and an Agent Plugins plugin that Cursor installs (`plugin.json` + `mcp.json`, `skills/`); all of them connect to `https://alion.io/mcp/open`. It holds the public manifests of the hosted server (MCP Registry `server.json` and `server-jobs.json`, `server-companies.json`, `server-people.json` for the narrow addresses, an Agent Plugins `plugin.json` + `mcp.json`), the connection guide and [examples](examples/). The server itself runs at alion.io; there is nothing to self-host. For clients that only start a local command there is `npx -y @alion-io/mcp`, and code can use the typed clients `@alion-io/sdk` (npm) and `alion` (PyPI), all from [alion-io/alion-sdk](https://github.com/alion-io/alion-sdk).
 
 ## Tools
 

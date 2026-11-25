@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.alion/people",
   "title": "Alion People: find candidates and contact them",
-  "description": "Find people open to offers by role and skills, read open profiles, message them via Alion.",
-  "version": "1.0.0",
+  "description": "Find people open to offers by role and skills, read open profiles, write to them via Alion.",
+  "version": "1.1.0",
   "websiteUrl": "https://alion.io/developers/people",
   "icons": [
     {

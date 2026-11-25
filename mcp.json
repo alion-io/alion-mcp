@@ -3,7 +3,7 @@
   "mcpServers": {
     "alion": {
       "type": "streamable-http",
-      "url": "https://alion.io/mcp"
+      "url": "https://alion.io/mcp/open"
     }
   }
 }

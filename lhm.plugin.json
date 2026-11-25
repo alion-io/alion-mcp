@@ -1,12 +1,12 @@
 {
   "identifier": "alion",
   "name": "Alion — Company & Market Intelligence",
-  "version": "1.2.0",
-  "description": "Live data on millions of companies worldwide, read from their own websites, job boards and public registers: what they do, where they operate, tech stack, funding rounds and investors, growth - plus lookalike companies, verified job postings and pay statistics. Remote Streamable HTTP server with OAuth sign-in (or an API key header); compact lists are free up to 50 a day, full profiles and statistics are paid from Alion credits.",
+  "version": "1.6.0",
+  "description": "Live data on millions of companies worldwide, read from their own websites, job boards and public registers: what they do, where they operate, tech stack, funding rounds and investors, growth, the open ways into each - plus lookalike companies, verified job postings and pay statistics. Remote Streamable HTTP server. No account needed: search companies, jobs and pay, read company cards and full job postings, see the ways into a company (entry_points) and watch up to 25 named companies for events. The deep reads - full company profiles, investors, company events, money, ownership, registers and public contracts - have free tries every day; connect_account then gets the agent a free Alion account key its person approves in one click.",
   "author": "Alion",
   "authorUrl": "https://alion.io",
   "homepage": "https://github.com/alion-io/alion-mcp",
-  "cloudEndpoint": "https://alion.io/mcp",
+  "cloudEndpoint": "https://alion.io/mcp/open",
   "icon": "https://raw.githubusercontent.com/alion-io/alion-mcp/main/assets/logo-400.png",
   "tags": [
     "companies",
